@@ -2,6 +2,9 @@ package org.example;
 
 import GestionDeHabitats.*;
 import CuidadoDeAnimales.*;
+import InteracciónConVisitantes.*;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,6 +47,41 @@ public class Main {
         System.out.println("Tipo de pelaje del mamífero: " + mamifero.getTipoPelaje());
         System.out.println("Salud del mamífero: " + mamifero.getSalud());
         System.out.println("Alimentación del mamífero: " + mamifero.getAlimentacion());
+
+        Quiosco quiosco = new Quiosco();
+
+        Tour tourParaNinos = new TourParaNiños();
+        Tour tourParaAficionadosAves = new TourParaAficionadosAves();
+        Tour tourParaAficionadosPeces = new TourParaAficionadosPeces();
+        Tour tourParaAficionadosMamiferos = new TourParaAficionadosMamíferos();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("¿Qué tipo de tour te gustaría hacer? (1: Tour para niños, 2: Tour para aficionados a las aves, 3: Tour para aficionados a los peces, 4: Tour para aficionados a los mamíferos,)");
+        int eleccion = scanner.nextInt();
+
+        switch (eleccion) {
+            case 1:
+                quiosco.proporcionarInformacion(tourParaNinos);
+                break;
+            case 2:
+                quiosco.proporcionarInformacion(tourParaAficionadosAves);
+                break;
+            case 3:
+                quiosco.proporcionarInformacion(tourParaAficionadosPeces);
+                break;
+            case 4:
+                quiosco.proporcionarInformacion(tourParaAficionadosMamiferos);
+                break;
+            default:
+                System.out.println("Lo siento, esa no es una opción válida.");
+                break;
+        }
+
+        scanner.close();
+
+
+
+
     }
 }
 
