@@ -1,9 +1,11 @@
 package org.example;
 
 import GestionDeHabitats.*;
+import CuidadoDeAnimales.*;
 
 public class Main {
     public static void main(String[] args) {
+        // Instancias y métodos de GestionDeHabitats
         HabitatAcuatico acuatico = new HabitatAcuatico(20.5, 80.0, true, 100);
         habitatTerrestre terrestre = new habitatTerrestre(25.0, 50.0, false, "Árboles con frutos y arbustos con bayas");
         habitatAviario aviario = new habitatAviario(22.0, 60.0, true, 15.0);
@@ -22,6 +24,26 @@ public class Main {
         System.out.println("Altura del hábitat aviario: " + aviario.getAltura());
         System.out.println("Humedad del hábitat aviario: " + aviario.getHumedad());
         System.out.println("Temperatura del hábitat aviario: " + aviario.getTemperatura());
+
+        // Instancias y métodos de CuidadoDeAnimales
+        Pez pez = new Pez("Congrio", 60, "Algas y peces pequeños", "Salada");
+        Ave ave = new Ave("Quebrantahuesos", 100, "Carne", true);
+        Mamifero mamifero = new Mamifero("Canguro", 90, "Vegetales", "Corto");
+
+        System.out.println("Nombre del pez: " + pez.getNombre());
+        System.out.println("Tipo de agua del pez: " + pez.getTipoAgua());
+        System.out.println("Salud del pez: " + pez.getSalud());
+        System.out.println("Alimentación del pez: " + pez.getAlimentacion());
+
+        System.out.println("Nombre del ave: " + ave.getNombre());
+        System.out.println("El ave vuela: " + ave.isVuela());
+        System.out.println("Salud del ave: " + ave.getSalud());
+        System.out.println("Alimentación del ave: " + ave.getAlimentacion());
+
+        System.out.println("Nombre del mamífero: " + mamifero.getNombre());
+        System.out.println("Tipo de pelaje del mamífero: " + mamifero.getTipoPelaje());
+        System.out.println("Salud del mamífero: " + mamifero.getSalud());
+        System.out.println("Alimentación del mamífero: " + mamifero.getAlimentacion());
     }
 }
 
