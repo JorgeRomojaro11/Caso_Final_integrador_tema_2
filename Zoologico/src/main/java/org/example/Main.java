@@ -3,6 +3,7 @@ package org.example;
 import GestionDeHabitats.*;
 import CuidadoDeAnimales.*;
 import InteracciónConVisitantes.*;
+import AdministracionDeRecursos.*;
 
 import java.util.Scanner;
 
@@ -30,8 +31,8 @@ public class Main {
 
         // Instancias y métodos de CuidadoDeAnimales
         Pez pez = new Pez("Congrio", 60, "Algas y peces pequeños", "Salada");
-        Ave ave = new Ave("Quebrantahuesos", 100, "Carne", true);
-        Mamifero mamifero = new Mamifero("Canguro", 90, "Vegetales", "Corto");
+        Ave ave = new Ave("Quebrantahuesos", 80, "Carne", true);
+        Mamifero mamifero = new Mamifero("Ciervos", 90, "Vegetales", "Corto");
 
         System.out.println("Nombre del pez: " + pez.getNombre());
         System.out.println("Tipo de agua del pez: " + pez.getTipoAgua());
@@ -47,7 +48,6 @@ public class Main {
         System.out.println("Tipo de pelaje del mamífero: " + mamifero.getTipoPelaje());
         System.out.println("Salud del mamífero: " + mamifero.getSalud());
         System.out.println("Alimentación del mamífero: " + mamifero.getAlimentacion());
-
 
         Quiosco quiosco = new Quiosco();
 
@@ -77,12 +77,35 @@ public class Main {
                 System.out.println("Lo siento, esa no es una opción válida.");
                 break;
         }
-
         scanner.close();
 
+        // Crear instancias de Alimento, Medicina y Equipamiento
+        Alimento alimento = new Alimento("Manzanas", 100, "Frutas Martinez", "Frutas");
+        Medicina medicina = new Medicina("Antibioticos", 50, "Farmaceutica SB", "Para infecciones");
+        Equipamiento equipamiento = new Equipamiento("Jaulas", 10, "Proteccion ASD", "Jaulas para ciervos");
 
+        // Crear una instancia de Inventario
+        Inventario inventario = new Inventario();
 
+        // Agregar los recursos al inventario
+        inventario.agregarAlimento(alimento);
+        inventario.agregarMedicina(medicina);
+        inventario.agregarEquipamiento(equipamiento);
 
+        // Verificar la cantidad de un recurso específico
+        int cantidadAlimento = inventario.verificarCantidadAlimento("Manzanas");
+        System.out.println("Cantidad de Manzanas: " + cantidadAlimento);
+
+        int cantidadMedicina = inventario.verificarCantidadMedicina("Antibioticos");
+        System.out.println("Cantidad de Antibioticos: " + cantidadMedicina);
+
+        int cantidadEquipamiento = inventario.verificarCantidadEquipamiento("Jaulas");
+        System.out.println("Cantidad de Jaulas: " + cantidadEquipamiento);
+
+        // Eliminar un recurso del inventario
+        inventario.eliminarAlimento(alimento);
+        inventario.eliminarMedicina(medicina);
+        inventario.eliminarEquipamiento(equipamiento);
     }
 }
 
