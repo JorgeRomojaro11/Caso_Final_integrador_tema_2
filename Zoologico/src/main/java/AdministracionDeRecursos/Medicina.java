@@ -8,5 +8,11 @@ public class Medicina extends Recurso {
         this.uso = uso;
     }
 
-    // Getters y setters
+    public String getUso() {
+        return uso;
+    }
+
+    public void setUso(String uso) {
+        this.uso = uso;
+    }
 }

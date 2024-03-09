@@ -8,5 +8,11 @@ public class Alimento extends Recurso {
         this.tipo = tipo;
     }
 
-    // Getters y setters
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 }
