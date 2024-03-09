@@ -4,7 +4,9 @@ import GestionDeHabitats.*;
 import CuidadoDeAnimales.*;
 import InteracciónConVisitantes.*;
 import AdministracionDeRecursos.*;
+import MantenimientoYSeguridad.*;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -106,6 +108,44 @@ public class Main {
         inventario.eliminarAlimento(alimento);
         inventario.eliminarMedicina(medicina);
         inventario.eliminarEquipamiento(equipamiento);
+
+        // Crear una tarea de mantenimiento
+        Mantenimiento mantenimiento = new Mantenimiento("Limpieza de jaulas", "Limpieza de jaulas de leones", new Date(), "Semanal");
+
+        // Crear una tarea de reparación urgente
+        ReparacionUrgente reparacionUrgente = new ReparacionUrgente("Reparación de cerca", "Reparación de cerca de jaula de tigres", new Date(), "Alta");
+
+        // Crear un sistema de mantenimiento y agregar las tareas
+        tareasMantenimieno sistemaMantenimiento = new tareasMantenimieno();
+        sistemaMantenimiento.agregarTareaMantenimiento(mantenimiento);
+        sistemaMantenimiento.agregarTareaReparacionUrgente(reparacionUrgente);
+
+        // Crear dispositivos de seguridad
+        Camara camara = new Camara("Entrada principal", "1080p");
+        SensorMovimiento sensorMovimiento = new SensorMovimiento("Jaula de leones", 5);
+
+        // Crear un sistema de seguridad y agregar los dispositivos
+        SistemaSeguridad sistemaSeguridad = new SistemaSeguridad();
+        sistemaSeguridad.agregarCamara(camara);
+        sistemaSeguridad.agregarSensorMovimiento(sensorMovimiento);
+
+        // Crear un sistema de mantenimiento y agregar las tareas
+        sistemaMantenimiento = new tareasMantenimieno();
+        sistemaMantenimiento.agregarTareaMantenimiento(mantenimiento);
+        sistemaMantenimiento.agregarTareaReparacionUrgente(reparacionUrgente);
+
+        System.out.println("Tareas de mantenimiento y reparación urgente agregadas correctamente.");
+
+// Crear dispositivos de seguridad
+        camara = new Camara("Entrada principal", "1080p");
+        sensorMovimiento = new SensorMovimiento("Jaula de leones", 5);
+
+// Crear un sistema de seguridad y agregar los dispositivos
+        sistemaSeguridad = new SistemaSeguridad();
+        sistemaSeguridad.agregarCamara(camara);
+        sistemaSeguridad.agregarSensorMovimiento(sensorMovimiento);
+
+        System.out.println("Cámara y sensor de movimiento agregados correctamente.");
     }
 }
 
