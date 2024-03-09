@@ -34,4 +34,9 @@ public class Habitat {
     public void setLimpieza(boolean limpieza) {
         this.limpieza = limpieza;
     }
+    public String getInfo() {
+        return "Temperatura: " + temperatura + ", Humedad: " + humedad + ", Limpieza: " + (limpieza ? "Sí" : "No");
+    }
+
+
 }

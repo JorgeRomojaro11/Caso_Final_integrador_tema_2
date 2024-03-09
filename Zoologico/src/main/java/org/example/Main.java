@@ -48,15 +48,16 @@ public class Main {
         System.out.println("Salud del mamífero: " + mamifero.getSalud());
         System.out.println("Alimentación del mamífero: " + mamifero.getAlimentacion());
 
+
         Quiosco quiosco = new Quiosco();
 
-        Tour tourParaNinos = new TourParaNiños();
-        Tour tourParaAficionadosAves = new TourParaAficionadosAves();
-        Tour tourParaAficionadosPeces = new TourParaAficionadosPeces();
-        Tour tourParaAficionadosMamiferos = new TourParaAficionadosMamíferos();
+        Tour tourParaNinos = new TourParaNiños(acuatico, pez);
+        Tour tourParaAficionadosAves = new TourParaAficionadosAves(aviario, ave);
+        Tour tourParaAficionadosPeces = new TourParaAficionadosPeces(acuatico, pez);
+        Tour tourParaAficionadosMamiferos = new TourParaAficionadosMamíferos(terrestre, mamifero);
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("¿Qué tipo de tour te gustaría hacer? (1: Tour para niños, 2: Tour para aficionados a las aves, 3: Tour para aficionados a los peces, 4: Tour para aficionados a los mamíferos,)");
+        System.out.println("¿Qué tipo de tour te gustaría hacer? (1: Tour para niños, 2: Tour para aficionados a las aves, 3: Tour para aficionados a los peces, 4: Tour para aficionados a los mamíferos)");
         int eleccion = scanner.nextInt();
 
         switch (eleccion) {

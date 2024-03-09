@@ -34,4 +34,8 @@ public class Animal {
     public void setAlimentacion(String alimentacion) {
         this.alimentacion = alimentacion;
     }
+
+    public String getInfo() {
+        return "Nombre: " + nombre + ", Salud: " + salud + ", Alimentación: " + alimentacion;
+    }
 }

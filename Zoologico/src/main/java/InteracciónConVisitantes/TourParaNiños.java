@@ -1,8 +1,16 @@
 package InteracciónConVisitantes;
 
+import GestionDeHabitats.Habitat;
+import CuidadoDeAnimales.Animal;
+
 public class TourParaNiños extends Tour {
+    public TourParaNiños(Habitat habitat, Animal animal) {
+        super(habitat, animal);
+    }
+
     @Override
     public void realizarTour() {
-        System.out.println("Bienvenidos niños! Vamos a aprender sobre los animales de una manera divertida.");
+        super.realizarTour();
+        System.out.println("¡Este es un tour completo para niños!");
     }
 }

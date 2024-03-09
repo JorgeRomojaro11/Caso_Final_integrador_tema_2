@@ -1,8 +1,16 @@
 package InteracciónConVisitantes;
 
+import GestionDeHabitats.Habitat;
+import CuidadoDeAnimales.Animal;
+
 public class TourParaAficionadosMamíferos extends Tour {
+    public TourParaAficionadosMamíferos(Habitat habitat, Animal animal) {
+        super(habitat, animal);
+    }
+
     @Override
     public void realizarTour() {
-        System.out.println("Bienvenidos aficionados a los mamíferos! Vamos a conocer a nuestros mamíferos favoritos.");
+        super.realizarTour();
+        System.out.println("¡Este es un tour para aficionados a los mamíferos!");
     }
 }
