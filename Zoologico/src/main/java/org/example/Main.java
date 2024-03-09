@@ -122,7 +122,7 @@ public class Main {
 
         // Crear dispositivos de seguridad
         Camara camara = new Camara("Entrada principal", "1080p");
-        SensorMovimiento sensorMovimiento = new SensorMovimiento("Jaula de leones", 5);
+        SensorMovimiento sensorMovimiento = new SensorMovimiento("Jaula de ciervos", 2);
 
         // Crear un sistema de seguridad y agregar los dispositivos
         SistemaSeguridad sistemaSeguridad = new SistemaSeguridad();
@@ -135,17 +135,11 @@ public class Main {
         sistemaMantenimiento.agregarTareaReparacionUrgente(reparacionUrgente);
 
         System.out.println("Tareas de mantenimiento y reparación urgente agregadas correctamente.");
-
-// Crear dispositivos de seguridad
-        camara = new Camara("Entrada principal", "1080p");
-        sensorMovimiento = new SensorMovimiento("Jaula de leones", 5);
-
-// Crear un sistema de seguridad y agregar los dispositivos
-        sistemaSeguridad = new SistemaSeguridad();
-        sistemaSeguridad.agregarCamara(camara);
-        sistemaSeguridad.agregarSensorMovimiento(sensorMovimiento);
-
         System.out.println("Cámara y sensor de movimiento agregados correctamente.");
+        System.out.println("Ubicación de la cámara: " + camara.getUbicacion());
+        System.out.println("Resolución de la cámara: " + camara.getResolucion());
+        System.out.println("Ubicación del sensor de movimiento: " + sensorMovimiento.getUbicacion());
+        System.out.println("Sensibilidad del sensor de movimiento: " + sensorMovimiento.getSensibilidad());
     }
 }
 
