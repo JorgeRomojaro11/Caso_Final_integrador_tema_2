@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Instancias y métodos de GestionDeHabitats
-        HabitatAcuatico acuatico = new HabitatAcuatico(20.5, 80.0, true, 100);
+        HabitatAcuatico acuatico = new HabitatAcuatico(10, 80.0, true, 100);
         habitatTerrestre terrestre = new habitatTerrestre(25.0, 50.0, false, "Árboles con frutos y arbustos con bayas");
         habitatAviario aviario = new habitatAviario(22.0, 60.0, true, 15.0);
 
