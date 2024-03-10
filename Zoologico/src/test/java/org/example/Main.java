@@ -11,6 +11,102 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Bienvenido al zoo. ¿Eres un trabajador o un visitante?");
+        System.out.println("1. Trabajador del zoo");
+        System.out.println("2. Visitante del zoo");
+
+        int eleccion = scanner.nextInt();
+
+        switch (eleccion) {
+            case 1:
+                trabajadorDelZoo();
+                break;
+            case 2:
+                visitanteDelZoo();
+                break;
+            default:
+                System.out.println("Lo siento, esa no es una opción válida.");
+                break;
+        }
+
+        scanner.close();
+    }
+
+    public static void trabajadorDelZoo() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Has elegido Trabajador del zoo. ¿Qué área te gustaría gestionar?");
+        System.out.println("1. Gestion de habitats");
+        System.out.println("2. Cuidado de animales");
+        System.out.println("3. Administracion de recursos");
+        System.out.println("4. Mantenimiento y Seguridad");
+
+        int eleccion = scanner.nextInt();
+
+        switch (eleccion) {
+            case 1:
+                gestionDeHabitats();
+                break;
+            case 2:
+                cuidadoDeAnimales();
+                break;
+            case 3:
+                administracionDeRecursos();
+                break;
+            case 4:
+                mantenimientoYSeguridad();
+                break;
+            default:
+                System.out.println("Lo siento, esa no es una opción válida.");
+                break;
+        }
+
+        scanner.close();
+    }
+
+    public static void visitanteDelZoo() {
+        Quiosco quiosco = new Quiosco();
+
+        HabitatAcuatico acuatico = new HabitatAcuatico(10, 80.0, true, 100);
+        habitatTerrestre terrestre = new habitatTerrestre(25.0, 50.0, false, "Árboles con frutos y arbustos con bayas");
+        habitatAviario aviario = new habitatAviario(22.0, 60.0, true, 15.0);
+
+        Pez pez = new Pez("Congrio", 60, "Algas y peces pequeños", "Salada");
+        Ave ave = new Ave("Quebrantahuesos", 80, "Carne", true);
+        Mamifero mamifero = new Mamifero("Ciervos", 90, "Vegetales", "Corto");
+
+        Tour tourParaNinos = new TourParaNiños(acuatico, pez);
+        Tour tourParaAficionadosAves = new TourParaAficionadosAves(aviario, ave);
+        Tour tourParaAficionadosPeces = new TourParaAficionadosPeces(acuatico, pez);
+        Tour tourParaAficionadosMamiferos = new TourParaAficionadosMamíferos(terrestre, mamifero);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("¿Qué tipo de tour te gustaría hacer? (1: Tour para niños, 2: Tour para aficionados a las aves, 3: Tour para aficionados a los peces, 4: Tour para aficionados a los mamíferos)");
+        int eleccionTour = scanner.nextInt();
+
+        switch (eleccionTour) {
+            case 1:
+                quiosco.proporcionarInformacion(tourParaNinos);
+                break;
+            case 2:
+                quiosco.proporcionarInformacion(tourParaAficionadosAves);
+                break;
+            case 3:
+                quiosco.proporcionarInformacion(tourParaAficionadosPeces);
+                break;
+            case 4:
+                quiosco.proporcionarInformacion(tourParaAficionadosMamiferos);
+                break;
+            default:
+                System.out.println("Lo siento, esa no es una opción válida.");
+                break;
+        }
+        scanner.close();
+    }
+
+    public static void gestionDeHabitats() {
         // Instancias y métodos de GestionDeHabitats
         HabitatAcuatico acuatico = new HabitatAcuatico(10, 80.0, true, 100);
         habitatTerrestre terrestre = new habitatTerrestre(25.0, 50.0, false, "Árboles con frutos y arbustos con bayas");
@@ -30,7 +126,9 @@ public class Main {
         System.out.println("Altura del hábitat aviario: " + aviario.getAltura());
         System.out.println("Humedad del hábitat aviario: " + aviario.getHumedad());
         System.out.println("Temperatura del hábitat aviario: " + aviario.getTemperatura());
+    }
 
+    public static void cuidadoDeAnimales() {
         // Instancias y métodos de CuidadoDeAnimales
         Pez pez = new Pez("Congrio", 60, "Algas y peces pequeños", "Salada");
         Ave ave = new Ave("Quebrantahuesos", 80, "Carne", true);
@@ -50,37 +148,9 @@ public class Main {
         System.out.println("Tipo de pelaje del mamífero: " + mamifero.getTipoPelaje());
         System.out.println("Salud del mamífero: " + mamifero.getSalud());
         System.out.println("Alimentación del mamífero: " + mamifero.getAlimentacion());
+    }
 
-        Quiosco quiosco = new Quiosco();
-
-        Tour tourParaNinos = new TourParaNiños(acuatico, pez);
-        Tour tourParaAficionadosAves = new TourParaAficionadosAves(aviario, ave);
-        Tour tourParaAficionadosPeces = new TourParaAficionadosPeces(acuatico, pez);
-        Tour tourParaAficionadosMamiferos = new TourParaAficionadosMamíferos(terrestre, mamifero);
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("¿Qué tipo de tour te gustaría hacer? (1: Tour para niños, 2: Tour para aficionados a las aves, 3: Tour para aficionados a los peces, 4: Tour para aficionados a los mamíferos)");
-        int eleccion = scanner.nextInt();
-
-        switch (eleccion) {
-            case 1:
-                quiosco.proporcionarInformacion(tourParaNinos);
-                break;
-            case 2:
-                quiosco.proporcionarInformacion(tourParaAficionadosAves);
-                break;
-            case 3:
-                quiosco.proporcionarInformacion(tourParaAficionadosPeces);
-                break;
-            case 4:
-                quiosco.proporcionarInformacion(tourParaAficionadosMamiferos);
-                break;
-            default:
-                System.out.println("Lo siento, esa no es una opción válida.");
-                break;
-        }
-        scanner.close();
-
+    public static void administracionDeRecursos() {
         // Crear instancias de Alimento, Medicina y Equipamiento
         Alimento alimento = new Alimento("Manzanas", 100, "Frutas Martinez", "Frutas");
         Medicina medicina = new Medicina("Antibioticos", 50, "Farmaceutica SB", "Para infecciones");
@@ -108,7 +178,9 @@ public class Main {
         inventario.eliminarAlimento(alimento);
         inventario.eliminarMedicina(medicina);
         inventario.eliminarEquipamiento(equipamiento);
+    }
 
+    public static void mantenimientoYSeguridad() {
         // Crear una tarea de mantenimiento
         Mantenimiento mantenimiento = new Mantenimiento("Limpieza de jaulas", "Limpieza de jaulas de leones", new Date(), "Semanal");
 
@@ -142,5 +214,6 @@ public class Main {
         System.out.println("Sensibilidad del sensor de movimiento: " + sensorMovimiento.getSensibilidad());
     }
 }
+
 
 
