@@ -113,7 +113,7 @@ public class Main {
         Mantenimiento mantenimiento = new Mantenimiento("Limpieza de jaulas", "Limpieza de jaulas de leones", new Date(), "Semanal");
 
         // Crear una tarea de reparación urgente
-        ReparacionUrgente reparacionUrgente = new ReparacionUrgente("Reparación de cerca", "Reparación de cerca de jaula de tigres", new Date(), "Alta");
+        ReparacionUrgente reparacionUrgente = new ReparacionUrgente("Reparación de cerca", "Reparación de cerca de acuario de congrios", new Date(), "Alta");
 
         // Crear un sistema de mantenimiento y agregar las tareas
         tareasMantenimieno sistemaMantenimiento = new tareasMantenimieno();

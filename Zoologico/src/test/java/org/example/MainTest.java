@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Date;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -96,5 +97,55 @@ class MainTest {
                 quiosco.proporcionarInformacion(tourParaAficionadosMamiferos);
                 break;
         }
+    }
+    @Test
+    void AdministracionDeRecursos() {
+        Alimento alimento = new Alimento("Manzanas", 100, "Frutas Martinez", "Frutas");
+        Medicina medicina = new Medicina("Antibioticos", 50, "Farmaceutica SB", "Para infecciones");
+        Equipamiento equipamiento = new Equipamiento("Jaulas", 10, "Proteccion ASD", "Jaulas para ciervos");
+        Inventario inventario = new Inventario();
+
+        inventario.agregarAlimento(alimento);
+        inventario.agregarMedicina(medicina);
+        inventario.agregarEquipamiento(equipamiento);
+
+        int cantidadAlimento = inventario.verificarCantidadAlimento("Manzanas");
+        System.out.println("Cantidad de Manzanas: " + cantidadAlimento);
+
+        int cantidadMedicina = inventario.verificarCantidadMedicina("Antibioticos");
+        System.out.println("Cantidad de Antibioticos: " + cantidadMedicina);
+
+        int cantidadEquipamiento = inventario.verificarCantidadEquipamiento("Jaulas");
+        System.out.println("Cantidad de Jaulas: " + cantidadEquipamiento);
+
+        inventario.eliminarAlimento(alimento);
+        inventario.eliminarMedicina(medicina);
+        inventario.eliminarEquipamiento(equipamiento);
+    }
+    @Test
+    void MantenimientoYSeguridad() {
+        Mantenimiento mantenimiento = new Mantenimiento("Limpieza de jaulas", "Limpieza de jaulas de leones", new Date(), "Semanal");
+        ReparacionUrgente reparacionUrgente = new ReparacionUrgente("Reparación de cerca", "Reparación de cerca de acuario de congrios", new Date(), "Alta");
+
+        tareasMantenimieno sistemaMantenimiento = new tareasMantenimieno();
+        sistemaMantenimiento.agregarTareaMantenimiento(mantenimiento);
+        sistemaMantenimiento.agregarTareaReparacionUrgente(reparacionUrgente);
+
+        Camara camara = new Camara("Entrada principal", "1080p");
+        SensorMovimiento sensorMovimiento = new SensorMovimiento("Jaula de ciervos", 2);
+        SistemaSeguridad sistemaSeguridad = new SistemaSeguridad();
+        sistemaSeguridad.agregarCamara(camara);
+        sistemaSeguridad.agregarSensorMovimiento(sensorMovimiento);
+
+        sistemaMantenimiento = new tareasMantenimieno();
+        sistemaMantenimiento.agregarTareaMantenimiento(mantenimiento);
+        sistemaMantenimiento.agregarTareaReparacionUrgente(reparacionUrgente);
+
+        System.out.println("Tareas de mantenimiento y reparación urgente agregadas correctamente.");
+        System.out.println("Cámara y sensor de movimiento agregados correctamente.");
+        System.out.println("Ubicación de la cámara: " + camara.getUbicacion());
+        System.out.println("Resolución de la cámara: " + camara.getResolucion());
+        System.out.println("Ubicación del sensor de movimiento: " + sensorMovimiento.getUbicacion());
+        System.out.println("Sensibilidad del sensor de movimiento: " + sensorMovimiento.getSensibilidad());
     }
 }
