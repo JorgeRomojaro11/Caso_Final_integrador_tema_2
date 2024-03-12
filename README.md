@@ -14,3 +14,9 @@ administracionDeRecursos: Este método se encarga de la administración de recur
 mantenimientoYSeguridad: Este método se encarga del mantenimiento y la seguridad en el zoológico.
 
 Las clases son utilizadas para representar diferentes entidades en el zoológico. Cada una de estas clases tiene sus propios atributos y métodos que se utilizan para representar y manipular sus respectivas entidades.
+
+Durante todo el trabajo se han utilizado las herencias para poder pasar las características de una clase principal a otras subclases dentro del mismo grupo, que recogen la información al formar parte del paquete.
+
+En cuanto a la creación de pruebas, se ha creado una clase de prueba MainTest que contiene varios métodos de prueba. Cada método de prueba se anota con @Test y prueba una funcionalidad específica del código. Por ejemplo, el método GestionDeHabitats() prueba la funcionalidad de gestión de hábitats, creando instancias de diferentes tipos de hábitats y verificando sus atributos.
+
+En resumen, este proyecto demuestra la aplicación de la herencia en la creación de clases y subclases, así como la creación de pruebas unitarias para verificar la funcionalidad del código.
